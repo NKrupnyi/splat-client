@@ -29,7 +29,8 @@ public class Requester {
                 os.close();
             }
             connection.connect();
-            System.out.println(serviceUrl + id + "\t\t" + method +" "+ connection.getResponseCode());
+            System.out.println(Thread.currentThread().getName()+"  "+
+                    serviceUrl + id + "\t\t" + method +" "+ connection.getResponseCode());
         } catch (ProtocolException e) {
             e.printStackTrace();
         } catch (MalformedURLException e) {

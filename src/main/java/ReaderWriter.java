@@ -1,6 +1,9 @@
+import java.util.Random;
+
 public class ReaderWriter implements Runnable {
     private final Requester requester;
     private final String method;
+    private Random rnd = new Random(System.currentTimeMillis());
 
     public ReaderWriter(Requester requester, String method) {
         this.requester = requester;
@@ -8,9 +11,10 @@ public class ReaderWriter implements Runnable {
     }
 
     public void run() {
-        for (int i = 0; i < 100; i++) {
-//            System.out.println(Thread.currentThread().getName() + "_" + i);
-            requester.makeRequest(i,method);
+
+        while (!Thread.interrupted()) {
+            // Running big task
+            requester.makeRequest(rnd.nextInt(100),method);
 
         }
 
