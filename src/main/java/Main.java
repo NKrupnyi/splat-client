@@ -24,7 +24,7 @@ public class Main {
 
         executor.shutdown();
         try {
-            executor.awaitTermination(5, TimeUnit.SECONDS);
+            executor.awaitTermination(20, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
